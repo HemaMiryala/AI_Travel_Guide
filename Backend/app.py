@@ -254,4 +254,5 @@ Create a refined, complete itinerary that:
             "error": "Unable to refine the itinerary right now."
         }), 500
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
