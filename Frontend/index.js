@@ -349,11 +349,13 @@ transcriptToggle.addEventListener('click', () => {
 
 
 
+const BACKEND_URL = "https://ai-travel-guide-api-oe5d.onrender.com";
+
 const GENERATE_ITINERARY_API_URL =
-  "http://127.0.0.1:5000/generate-itinerary";
+  `${BACKEND_URL}/generate-itinerary`;
 
 const REFINE_ITINERARY_API_URL =
-  "http://127.0.0.1:5000/refine-itinerary";
+  `${BACKEND_URL}/refine-itinerary`;
 
 const itineraryForm = document.getElementById("itineraryForm");
 const itineraryStatus = document.getElementById("itineraryStatus");
