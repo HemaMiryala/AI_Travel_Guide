@@ -368,6 +368,174 @@
       </div>
     </div>
   </section>
+    <!-- Smart Trip Planner -->
+  
+<section id="tripPlanner" class="px-6 pb-20">
+  <div class="max-w-4xl mx-auto bg-white border border-gray-100 rounded-[2rem] p-8 shadow-sm">
+
+    <div class="mb-6">
+      <span class="text-xs font-bold uppercase tracking-widest text-[#ff8a1f]">
+        Plan Your Journey
+      </span>
+      <h2 class="mt-2 text-3xl font-bold text-gray-900">
+        Smart Trip Planner
+      </h2>
+      <p class="mt-2 text-sm text-gray-500">
+        Create, customize, and refine your personalized travel itinerary.
+      </p>
+    </div>
+
+    <form id="itineraryForm" class="space-y-5">
+      <div>
+        <label for="tripDestination" class="block text-sm font-semibold mb-2">
+          Destination
+        </label>
+        <input id="tripDestination" type="text" required
+          placeholder="e.g., Hyderabad, India"
+          class="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#ff8a1f]">
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label for="tripDays" class="block text-sm font-semibold mb-2">
+            Number of days
+          </label>
+          <input id="tripDays" type="number" min="1" max="30"
+            value="2" required
+            class="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#ff8a1f]">
+        </div>
+
+        <div>
+          <label for="tripBudget" class="block text-sm font-semibold mb-2">
+            Budget
+          </label>
+          <select id="tripBudget"
+            class="w-full p-3 rounded-xl border border-gray-200 bg-white">
+            <option>Budget-friendly</option>
+            <option selected>Moderate</option>
+            <option>Luxury</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold mb-3">Your interests</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="tripInterest" value="History" class="accent-orange-500"> History
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="tripInterest" value="Nature" class="accent-orange-500"> Nature
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="tripInterest" value="Food" class="accent-orange-500"> Food
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="tripInterest" value="Culture" class="accent-orange-500"> Culture
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="tripInterest" value="Adventure" class="accent-orange-500"> Adventure
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" name="tripInterest" value="Shopping" class="accent-orange-500"> Shopping
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="tripPace" class="block text-sm font-semibold mb-2">
+          Travel pace
+        </label>
+        <select id="tripPace"
+          class="w-full p-3 rounded-xl border border-gray-200 bg-white">
+          <option>Relaxed</option>
+          <option selected>Balanced</option>
+          <option>Packed</option>
+        </select>
+      </div>
+
+      <button id="generateItineraryBtn" type="submit"
+        class="w-full py-4 bg-gradient-to-r from-[#ff8a1f] to-[#ff6a00] text-white rounded-xl font-bold hover:shadow-lg transition-all">
+        Generate My Itinerary
+      </button>
+    </form>
+
+    <div id="itineraryStatus"
+      class="hidden mt-5 text-sm text-gray-600"
+      role="status" aria-live="polite"></div>
+
+    <div id="itineraryResultSection"
+      class="hidden mt-8 pt-6 border-t border-gray-100">
+
+      <div class="mb-6">
+        <h3 class="text-2xl font-bold text-gray-900">
+          Your Travel Itinerary
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+          Review your plan, make edits, and refine it to match your preferences.
+          Verify local details before travelling.
+        </p>
+      </div>
+
+      <!-- Professional formatted preview -->
+      <div class="mb-6">
+        <h4 class="text-lg font-bold text-gray-800 mb-3">
+          Itinerary Preview
+        </h4>
+        <div id="itineraryFormattedPreview"
+          class="rounded-2xl border border-orange-100 bg-orange-50/40 p-5 sm:p-6 text-sm text-gray-700 leading-7 space-y-2">
+        </div>
+        <p class="mt-2 text-xs text-gray-400">
+          Your preview updates as you edit the itinerary below.
+        </p>
+      </div>
+
+      <!-- Existing editable itinerary -->
+      <div class="mb-6">
+        <label for="itineraryResult"
+          class="block text-lg font-bold text-gray-800 mb-3">
+          Edit Your Itinerary
+        </label>
+        <textarea id="itineraryResult" rows="16"
+          class="w-full p-4 rounded-xl border border-gray-200 text-sm leading-7 focus:outline-none focus:border-[#ff8a1f]"
+          aria-label="Editable trip itinerary"
+          placeholder="Your itinerary will appear here..."></textarea>
+        <p class="mt-2 text-xs text-gray-400">
+          Make your changes here before refining or copying your plan.
+        </p>
+      </div>
+
+      <!-- Preferences for refinement -->
+      <div class="mb-5">
+        <label for="itineraryPreferences"
+          class="block text-sm font-bold text-gray-800 mb-2">
+          How would you like to improve this plan?
+        </label>
+        <textarea id="itineraryPreferences" rows="3"
+          class="w-full p-4 rounded-xl border border-gray-200 text-sm leading-6 focus:outline-none focus:border-[#ff8a1f]"
+          placeholder="e.g., Add more historical places, reduce travel, include local food, or make Day 2 more relaxed."></textarea>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <button id="refineItineraryBtn" type="button"
+          class="py-3 px-5 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-all">
+          Refine My Itinerary
+        </button>
+
+        <button id="copyItineraryBtn" type="button"
+          class="py-3 px-5 border border-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-50 transition-all">
+          Copy Itinerary
+        </button>
+      </div>
+
+      <p id="itineraryCopyStatus"
+        class="hidden mt-3 text-sm text-gray-600"
+        role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
 
   <script src="index.js"></script>
 </body>
